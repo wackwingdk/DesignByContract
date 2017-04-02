@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise4
 {
@@ -11,23 +9,23 @@ namespace Exercise4
     [ContractClassFor(typeof(IBag))]
     public abstract class BagContract : IBag
     {
-        private List<int> data;
+        private List<int> data { get; }
 
         [ContractInvariantMethod]
-        public void HasData()
+        private void HasData()
         {
             Contract.Invariant(data!=null);
         }
 
-        public int Count()
+        public virtual int Count()
         {
-            Contract.Ensures(Contract.Result<int>() == data.Count);
+            //Contract.Ensures(Contract.Result<int>() == data.Count);
             throw new NotImplementedException();
         }
 
         public int CountElem(int elem)
         {
-            Contract.Ensures(Contract.Result<int>() == Contract.su);
+            //Contract.Ensures(Contract.Result<int>() == data.Count(x => x == elem));
             throw new NotImplementedException();
         }
 
