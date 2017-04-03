@@ -9,14 +9,6 @@ namespace Exercise4
     [ContractClassFor(typeof(IBag))]
     public abstract class BagContract : IBag
     {
-        private List<int> data { get; }
-
-        [ContractInvariantMethod]
-        private void HasData()
-        {
-            Contract.Invariant(data!=null);
-        }
-
         public virtual int Count()
         {
             //Contract.Ensures(Contract.Result<int>() == data.Count);
@@ -25,7 +17,6 @@ namespace Exercise4
 
         public int CountElem(int elem)
         {
-            //Contract.Ensures(Contract.Result<int>() == data.Count(x => x == elem));
             throw new NotImplementedException();
         }
 

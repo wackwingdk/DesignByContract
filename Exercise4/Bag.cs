@@ -2,8 +2,14 @@
 
 namespace Exercise4
 {
+    using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
+    using System.Linq;
+
     public class Bag : IBag
     {
+        public IEnumerable<int> data { get; set; }
+
         public void Add(int elem)
         {
             throw new NotImplementedException();
@@ -19,8 +25,10 @@ namespace Exercise4
             throw new NotImplementedException();
         }
 
+        
         public int CountElem(int elem)
         {
+            Contract.Ensures(Contract.Result<int>() == data.Count(x => x == elem));
             throw new NotImplementedException();
         }
 
